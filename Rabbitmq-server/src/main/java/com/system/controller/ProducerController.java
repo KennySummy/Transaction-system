@@ -1,14 +1,23 @@
 package com.system.controller;
 
+import com.system.bean.ResponseData;
+import com.system.service.ProducerService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
-public class ProducerController {
+public class ProducerController extends BaseController {
 
-    public boolean producerMessage(String message){
-        boolean flag = false;
+    @Resource
+    private ProducerService producerService;
 
-        return flag;
+    @RequestMapping(value = "/producerMsg", method = RequestMethod.POST)
+    public ResponseData producerMessage(String message) {
+        producerService.sendMessage(message);
+        return ResponseData.ok();
     }
 
 }

@@ -4,10 +4,12 @@ import com.system.bean.AmqpParam;
 import com.system.service.ProducerService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.UUID;
 
+@Service
 public class ProducerServiceImpl implements ProducerService {
 
     @Resource
