@@ -7,6 +7,7 @@ import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.internal.util.StringUtility;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
@@ -14,11 +15,13 @@ public class DefaultCommentGenerator implements CommentGenerator {
     private Properties properties;
     private boolean suppressDate;
     private boolean suppressAllComments;
+    private String currentDateStr;
 
     public DefaultCommentGenerator() {
         this.properties = new Properties();
         this.suppressDate = false;
         this.suppressAllComments = false;
+        currentDateStr = (new SimpleDateFormat("yyyy-MM-dd")).format(new Date());
     }
 
     public void addJavaFileComment(CompilationUnit compilationUnit) {
@@ -82,16 +85,30 @@ public class DefaultCommentGenerator implements CommentGenerator {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
+//        StringBuilder sb = new StringBuilder();
+//
+//        sb.append(" /** ");
+//        sb.append(introspectedColumn.getRemarks());
+//        sb.append(" ");
+//        sb.append(introspectedTable.getFullyQualifiedTable());
+//        sb.append('.');
+//        sb.append(introspectedColumn.getActualColumnName());
+//        sb.append(" */");
+//        field.addJavaDocLine(sb.toString());
 
-        sb.append(" /** ");
-        sb.append(introspectedColumn.getRemarks());
-        sb.append(" ");
+
+        // 添加字段注释
+        StringBuffer sb = new StringBuffer();
+        field.addJavaDocLine("/**");
+        if (introspectedColumn.getRemarks() != null)
+            field.addJavaDocLine(" * " + introspectedColumn.getRemarks());
+        sb.append(" * 表字段 : ");
         sb.append(introspectedTable.getFullyQualifiedTable());
         sb.append('.');
         sb.append(introspectedColumn.getActualColumnName());
-        sb.append(" */");
         field.addJavaDocLine(sb.toString());
+        // addJavadocTag(field, false);
+        field.addJavaDocLine(" */");
 
     }
 
@@ -114,12 +131,29 @@ public class DefaultCommentGenerator implements CommentGenerator {
             return;
         }
 
+//        StringBuilder sb = new StringBuilder();
+//
+//        sb.append(" /** 取值：");
+//        sb.append(introspectedColumn.getRemarks());
+//        sb.append(" */");
+//        method.addJavaDocLine(sb.toString());
+//        method.addJavaDocLine("/**");
+        method.addJavaDocLine("/**");
         StringBuilder sb = new StringBuilder();
-
-        sb.append(" /** 取值：");
+        sb.append(" * ");
         sb.append(introspectedColumn.getRemarks());
-        sb.append(" */");
         method.addJavaDocLine(sb.toString());
+
+        sb.setLength(0);
+        sb.append(" * @return ");
+        sb.append(introspectedColumn.getActualColumnName());
+        sb.append(" ");
+        sb.append(introspectedColumn.getRemarks());
+        method.addJavaDocLine(sb.toString());
+
+        //      addJavadocTag(method, false);
+
+        method.addJavaDocLine(" */");
     }
 
 
@@ -129,18 +163,53 @@ public class DefaultCommentGenerator implements CommentGenerator {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
+//        StringBuilder sb = new StringBuilder();
+//
+//        sb.append(" /** 赋值：");
+//        sb.append(introspectedColumn.getRemarks());
+//        sb.append(" */");
+//        method.addJavaDocLine(sb.toString());
 
-        sb.append(" /** 赋值：");
+        method.addJavaDocLine("/**");
+        StringBuilder sb = new StringBuilder();
+        sb.append(" * ");
         sb.append(introspectedColumn.getRemarks());
-        sb.append(" */");
         method.addJavaDocLine(sb.toString());
+
+        Parameter parm = method.getParameters().get(0);
+        sb.setLength(0);
+        sb.append(" * @param ");
+        sb.append(parm.getName());
+        sb.append(" ");
+        sb.append(introspectedColumn.getRemarks());
+        method.addJavaDocLine(sb.toString());
+
+        //      addJavadocTag(method, false);
+
+        method.addJavaDocLine(" */");
     }
 
 
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable, boolean markAsDoNotDelete) {
         if (this.suppressAllComments) {
+            return;
         }
+        StringBuilder sb = new StringBuilder();
+
+        innerClass.addJavaDocLine("/**");
+        sb.append(" * ");
+        sb.append(introspectedTable.getFullyQualifiedTable());
+        innerClass.addJavaDocLine(sb.toString());
+
+        sb.setLength(0);
+        sb.append(" * @author ");
+        sb.append(properties.getProperty("user.name"));
+        sb.append(" ");
+        sb.append(currentDateStr);
+
+        //      addJavadocTag(innerClass, markAsDoNotDelete);
+
+        innerClass.addJavaDocLine(" */");
     }
 
 
