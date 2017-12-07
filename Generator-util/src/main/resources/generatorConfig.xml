@@ -21,11 +21,14 @@
         <!-- 格式化XML代码 -->
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 
-        <!-- optional，旨在创建class时，对注释进行控制 -->
-        <!-- 不生成注释 -->
-        <commentGenerator>
-            <property name="suppressAllComments" value="true"/>
-            <property name="suppressDate" value="true"/>
+        <!--数据库表注释生成-->
+        <!-- 这里的type里写的是你的实现类的类全路径 -->
+        <commentGenerator type="mybatis.generator.DefaultCommentGenerator">
+            <!--注释类型-->
+            <!--<property name="javaFileEncoding" value="UTF-8" />-->
+            <!--false:生成注释，true不生成注释-->
+            <!--<property name="suppressAllComments" value="false"/>-->
+            <!--<property name="suppressDate" value="false"/>-->
         </commentGenerator>
 
         <!--jdbc的数据库连接 -->
