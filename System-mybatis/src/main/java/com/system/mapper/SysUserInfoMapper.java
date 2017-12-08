@@ -10,19 +10,19 @@ public interface SysUserInfoMapper {
     })
     int deleteByPrimaryKey(Integer id);
 
-    @Insert({
-        "insert into sys_user_info (id, user_code, ",
-        "password, user_name, ",
-        "into_user, into_time, ",
-        "upd_user, upd_time, ",
-        "remarks)",
-        "values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, ",
-        "#{password,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, ",
-        "#{intoUser,jdbcType=VARCHAR}, #{intoTime,jdbcType=TIMESTAMP}, ",
-        "#{updUser,jdbcType=VARCHAR}, #{updTime,jdbcType=TIMESTAMP}, ",
-        "#{remarks,jdbcType=VARCHAR})"
-    })
-    int insert(SysUserInfo record);
+//    @Insert({
+//        "insert into sys_user_info (id, user_code, ",
+//        "password, user_name, ",
+//        "into_user, into_time, ",
+//        "upd_user, upd_time, ",
+//        "remarks)",
+//        "values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, ",
+//        "#{password,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, ",
+//        "#{intoUser,jdbcType=VARCHAR}, #{intoTime,jdbcType=TIMESTAMP}, ",
+//        "#{updUser,jdbcType=VARCHAR}, #{updTime,jdbcType=TIMESTAMP}, ",
+//        "#{remarks,jdbcType=VARCHAR})"
+//    })
+    int intoRecord(SysUserInfo record);
 
     int insertSelective(SysUserInfo record);
 
@@ -51,4 +51,5 @@ public interface SysUserInfoMapper {
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(SysUserInfo record);
+
 }

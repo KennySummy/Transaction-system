@@ -17,9 +17,9 @@ public class SysUserInfo {
 
     /**
      * 登录密码
-     * 表字段 : sys_user_info.password
+     * 表字段 : sys_user_info.user_pwd
      */
-    private String password;
+    private String userPwd;
 
     /**
      * 用户姓名
@@ -93,16 +93,16 @@ public class SysUserInfo {
      * 登录密码
      * @return password 登录密码
      */
-    public String getPassword() {
-        return password;
+    public String getUserPwd() {
+        return userPwd;
     }
 
     /**
      * 登录密码
-     * @param password 登录密码
+     * @param userPwd 登录密码
      */
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd == null ? null : userPwd.trim();
     }
 
     /**
