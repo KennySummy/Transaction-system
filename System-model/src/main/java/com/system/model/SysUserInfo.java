@@ -10,13 +10,19 @@ public class SysUserInfo {
     private Integer id;
 
     /**
-     * 登陆账号
+     * 用户账号
      * 表字段 : sys_user_info.user_code
      */
     private String userCode;
 
     /**
-     * 登录密码
+     * 用户手机号码
+     * 表字段 : sys_user_info.user_phone
+     */
+    private String userPhone;
+
+    /**
+     * 用户密码
      * 表字段 : sys_user_info.user_pwd
      */
     private String userPwd;
@@ -28,25 +34,37 @@ public class SysUserInfo {
     private String userName;
 
     /**
-     * 注册时间
+     * 用户别名
+     * 表字段 : sys_user_info.user_alias
+     */
+    private String userAlias;
+
+    /**
+     * 邮箱地址
+     * 表字段 : sys_user_info.email_addr
+     */
+    private String emailAddr;
+
+    /**
+     * 新建者
      * 表字段 : sys_user_info.into_user
      */
     private String intoUser;
 
     /**
-     * 注册时间
+     * 新建时间
      * 表字段 : sys_user_info.into_time
      */
     private Date intoTime;
 
     /**
-     * 修改者
+     * 更新者
      * 表字段 : sys_user_info.upd_user
      */
     private String updUser;
 
     /**
-     * 修改时间
+     * 更新时间
      * 表字段 : sys_user_info.upd_time
      */
     private Date updTime;
@@ -74,32 +92,48 @@ public class SysUserInfo {
     }
 
     /**
-     * 登陆账号
-     * @return user_code 登陆账号
+     * 用户账号
+     * @return user_code 用户账号
      */
     public String getUserCode() {
         return userCode;
     }
 
     /**
-     * 登陆账号
-     * @param userCode 登陆账号
+     * 用户账号
+     * @param userCode 用户账号
      */
     public void setUserCode(String userCode) {
         this.userCode = userCode == null ? null : userCode.trim();
     }
 
     /**
-     * 登录密码
-     * @return password 登录密码
+     * 用户手机号码
+     * @return user_phone 用户手机号码
+     */
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    /**
+     * 用户手机号码
+     * @param userPhone 用户手机号码
+     */
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone == null ? null : userPhone.trim();
+    }
+
+    /**
+     * 用户密码
+     * @return user_pwd 用户密码
      */
     public String getUserPwd() {
         return userPwd;
     }
 
     /**
-     * 登录密码
-     * @param userPwd 登录密码
+     * 用户密码
+     * @param userPwd 用户密码
      */
     public void setUserPwd(String userPwd) {
         this.userPwd = userPwd == null ? null : userPwd.trim();
@@ -122,64 +156,96 @@ public class SysUserInfo {
     }
 
     /**
-     * 注册时间
-     * @return into_user 注册时间
+     * 用户别名
+     * @return user_alias 用户别名
+     */
+    public String getUserAlias() {
+        return userAlias;
+    }
+
+    /**
+     * 用户别名
+     * @param userAlias 用户别名
+     */
+    public void setUserAlias(String userAlias) {
+        this.userAlias = userAlias == null ? null : userAlias.trim();
+    }
+
+    /**
+     * 邮箱地址
+     * @return email_addr 邮箱地址
+     */
+    public String getEmailAddr() {
+        return emailAddr;
+    }
+
+    /**
+     * 邮箱地址
+     * @param emailAddr 邮箱地址
+     */
+    public void setEmailAddr(String emailAddr) {
+        this.emailAddr = emailAddr == null ? null : emailAddr.trim();
+    }
+
+    /**
+     * 新建者
+     * @return into_user 新建者
      */
     public String getIntoUser() {
         return intoUser;
     }
 
     /**
-     * 注册时间
-     * @param intoUser 注册时间
+     * 新建者
+     * @param intoUser 新建者
      */
     public void setIntoUser(String intoUser) {
         this.intoUser = intoUser == null ? null : intoUser.trim();
     }
 
     /**
-     * 注册时间
-     * @return into_time 注册时间
+     * 新建时间
+     * @return into_time 新建时间
      */
     public Date getIntoTime() {
         return intoTime;
     }
 
     /**
-     * 注册时间
-     * @param intoTime 注册时间
+     * 新建时间
+     * @param intoTime 新建时间
      */
     public void setIntoTime(Date intoTime) {
         this.intoTime = intoTime;
     }
 
     /**
-     * 修改者
-     * @return upd_user 修改者
+     * 更新者
+     * @return upd_user 更新者
      */
     public String getUpdUser() {
         return updUser;
     }
 
     /**
-     * 修改者
-     * @param updUser 修改者
+     * 更新者
+     * @param updUser 更新者
      */
     public void setUpdUser(String updUser) {
         this.updUser = updUser == null ? null : updUser.trim();
     }
 
     /**
-     * 修改时间
-     * @return upd_time 修改时间
+     * 更新时间
+     * @return upd_time 更新时间
      */
     public Date getUpdTime() {
         return updTime;
     }
 
     /**
-     * 修改时间
-     * @param updTime 修改时间
+     * 更新时间
+     * @param updTime 更新时间
      */
     public void setUpdTime(Date updTime) {
         this.updTime = updTime;
