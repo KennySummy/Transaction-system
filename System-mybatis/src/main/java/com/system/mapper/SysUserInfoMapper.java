@@ -13,4 +13,18 @@ public interface SysUserInfoMapper {
      */
     int intoRecord(SysUserInfo record);
 
+    /**
+     * 根据userCode 查询数据
+     * @param userCode
+     * @return
+     */
+    SysUserInfo findByUserCode(String userCode);
+
+    /**
+     * 根据userPhone 查询数据
+     * @param userPhone
+     * @return
+     */
+    SysUserInfo findByUserPhone(String userPhone);
+
 }

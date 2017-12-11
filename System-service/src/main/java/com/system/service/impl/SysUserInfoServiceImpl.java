@@ -44,4 +44,24 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
             flag = true;
         return flag;
     }
+
+    @Override
+    public SysUserInfo findByUserCode(String userCode) {
+        SysUserInfo userInfo = null;
+        // 判断 userCode 是否为null，为 null 则返回 null；
+        if(StringUtils.isNullOrEmpty(userCode))
+            return userInfo;
+        userInfo = mapper.findByUserCode(userCode);
+        return userInfo;
+    }
+
+    @Override
+    public SysUserInfo findById(String userPhone) {
+        SysUserInfo userInfo = null;
+        // 判断 userPhone 是否为 null，为 null 则返回 null；
+        if(StringUtils.isNullOrEmpty(userPhone))
+            return userInfo;
+        userInfo = mapper.findByUserPhone(userPhone);
+        return userInfo;
+    }
 }
