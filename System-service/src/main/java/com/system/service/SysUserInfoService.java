@@ -2,8 +2,6 @@ package com.system.service;
 
 import com.system.model.SysUserInfo;
 
-import java.util.List;
-
 public interface SysUserInfoService {
 
     /**
@@ -25,6 +23,6 @@ public interface SysUserInfoService {
      * @param userPhone
      * @return
      */
-    SysUserInfo findById(String userPhone);
+    SysUserInfo findByUserPhone(String userPhone);
 
 }

@@ -1,7 +1,6 @@
 package com.system.mapper;
 
 import com.system.model.SysUserInfo;
-import org.apache.ibatis.annotations.*;
 
 public interface SysUserInfoMapper {
 
@@ -26,5 +25,12 @@ public interface SysUserInfoMapper {
      * @return
      */
     SysUserInfo findByUserPhone(String userPhone);
+
+    /**
+     * 根据userPhone 查询改记录并修改其数据
+     * @param record
+     * @return
+     */
+    SysUserInfo updByUserPhoneForUserInfo(SysUserInfo record);
 
 }

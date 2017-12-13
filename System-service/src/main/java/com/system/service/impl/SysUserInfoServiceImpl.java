@@ -56,7 +56,7 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
     }
 
     @Override
-    public SysUserInfo findById(String userPhone) {
+    public SysUserInfo findByUserPhone(String userPhone) {
         SysUserInfo userInfo = null;
         // 判断 userPhone 是否为 null，为 null 则返回 null；
         if(StringUtils.isNullOrEmpty(userPhone))
@@ -64,4 +64,5 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
         userInfo = mapper.findByUserPhone(userPhone);
         return userInfo;
     }
+
 }
